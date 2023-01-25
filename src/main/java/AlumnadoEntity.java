@@ -8,6 +8,8 @@ import java.util.List;
 @Table (name = "Alumnado")
 public class AlumnadoEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idAlumnado")
     private int idAlumnado;
 
     @Column(name = "Nombre")
@@ -19,7 +21,7 @@ public class AlumnadoEntity {
     @Column (name = "FechaNacimiento")
     private Date fechaNacimiento;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "idAlumnado")
     private List<MatriculaEntity> matriculas;
 
@@ -28,8 +30,8 @@ public class AlumnadoEntity {
      */
     public AlumnadoEntity(){}
 
-    public AlumnadoEntity(int idAlumno, String nombre, String apellidos, Date fechaNacimiento){
-        this.idAlumnado=idAlumno;
+    public AlumnadoEntity(String nombre, String apellidos, Date fechaNacimiento){
+
         this.nombre=nombre;
         this.apellidos=apellidos;
         this.fechaNacimiento=fechaNacimiento;

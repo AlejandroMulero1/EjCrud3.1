@@ -6,13 +6,11 @@ import javax.persistence.*;
 @Table (name = "Matricula")
 public class MatriculaEntity {
     @Id
+    @Column(name = "id")
     private int idMatricula;
 
-    @Column (name = "idAlumnado")
-    private int idAlumno;
-
-    @Column (name = "idProfesorado")
-    private int idProfesor;
+   // @Column (name = "idProfesorado")
+    // private int idProfesor;
 
     @Column (name = "Asignatura")
     private String asignatura;
@@ -25,7 +23,7 @@ public class MatriculaEntity {
     private AlumnadoEntity alumno;
 
     @ManyToOne
-    @JoinColumn(name = "idProfesor")
+    @JoinColumn(name = "idProfesorado")
     private ProfesoresEntity profesor;
 
     /**
@@ -35,8 +33,8 @@ public class MatriculaEntity {
 
     public MatriculaEntity(int idMatricula, int idProfesor, int idAlumno, String asignatura, int curso){
         this.idMatricula=idMatricula;
-        this.idProfesor=idProfesor;
-        this.idAlumno=idAlumno;
+       // this.idProfesor=idProfesor;
+        //this.idAlumno=idAlumno;
         this.asignatura=asignatura;
         this.curso=curso;
     }
@@ -50,13 +48,13 @@ public class MatriculaEntity {
         return idMatricula;
     }
 
-    public int getIdAlumno() {
+  /*  public int getIdAlumno() {
         return idAlumno;
-    }
+    }*/
 
-    public int getIdProfesor() {
+ /*   public int getIdProfesor() {
         return idProfesor;
-    }
+    } */
 
     public String getAsignatura() {
         return asignatura;
@@ -75,13 +73,13 @@ public class MatriculaEntity {
     }
 
     //Setters
-    public void setIdAlumno(int idAlumno) {
+   /* public void setIdAlumno(int idAlumno) {
         this.idAlumno = idAlumno;
-    }
+    } */
 
-    public void setIdProfesor(int idProfesor) {
+   /* public void setIdProfesor(int idProfesor) {
         this.idProfesor = idProfesor;
-    }
+    } */
 
     public void setAsignatura(String asignatura) {
         this.asignatura = asignatura;

@@ -8,6 +8,7 @@ import java.util.List;
 @Table(name = "Profesores")
 public class ProfesoresEntity {
     @Id
+    @Column(name = "idProfesor")
     private int idProfesor;
 
     @Column (name = "nombre")
