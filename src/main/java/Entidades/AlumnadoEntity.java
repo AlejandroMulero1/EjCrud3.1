@@ -1,4 +1,4 @@
-
+package Entidades;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -77,5 +77,10 @@ public class AlumnadoEntity {
 
     public void setMatriculas(List<MatriculaEntity> matriculas) {
         this.matriculas = matriculas;
+    }
+
+    @Override
+    public String toString(){
+        return getId() + ": " +  getNombre() + ", " + getApellidos() + ", " +getFechaNacimiento();
     }
 }

@@ -1,4 +1,6 @@
+package Entidades;
 
+import Entidades.MatriculaEntity;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -8,6 +10,7 @@ import java.util.List;
 @Table(name = "Profesores")
 public class ProfesoresEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idProfesor")
     private int idProfesor;
 
@@ -32,8 +35,7 @@ public class ProfesoresEntity {
      */
     public ProfesoresEntity(){}
 
-    public ProfesoresEntity(int idProfesor, String nombre, String apellidos, Date fechaNacimiento, int antiguedad){
-        this.idProfesor=idProfesor;
+    public ProfesoresEntity(String nombre, String apellidos, Date fechaNacimiento, int antiguedad){
         this.nombre=nombre;
         this.apellidos=apellidos;
         this.fechaNacimiento=fechaNacimiento;
@@ -89,5 +91,9 @@ public class ProfesoresEntity {
 
     public void setMatriculas(List<MatriculaEntity> matriculas) {
         this.matriculas = matriculas;
+    }
+
+    public String toString(){
+        return getIdProfesor() + ": " +  getNombre() + ", " + getApellidos() + ", " +getFechaNacimiento();
     }
 }

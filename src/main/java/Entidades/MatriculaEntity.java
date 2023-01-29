@@ -1,4 +1,6 @@
+package Entidades;
 
+import Entidades.AlumnadoEntity;
 
 import javax.persistence.*;
 
@@ -6,11 +8,9 @@ import javax.persistence.*;
 @Table (name = "Matricula")
 public class MatriculaEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int idMatricula;
-
-   // @Column (name = "idProfesorado")
-    // private int idProfesor;
 
     @Column (name = "Asignatura")
     private String asignatura;
@@ -31,10 +31,7 @@ public class MatriculaEntity {
      */
     public MatriculaEntity(){}
 
-    public MatriculaEntity(int idMatricula, int idProfesor, int idAlumno, String asignatura, int curso){
-        this.idMatricula=idMatricula;
-       // this.idProfesor=idProfesor;
-        //this.idAlumno=idAlumno;
+    public MatriculaEntity(String asignatura, int curso){
         this.asignatura=asignatura;
         this.curso=curso;
     }
@@ -47,14 +44,6 @@ public class MatriculaEntity {
     public int getIdMatricula() {
         return idMatricula;
     }
-
-  /*  public int getIdAlumno() {
-        return idAlumno;
-    }*/
-
- /*   public int getIdProfesor() {
-        return idProfesor;
-    } */
 
     public String getAsignatura() {
         return asignatura;
@@ -73,13 +62,6 @@ public class MatriculaEntity {
     }
 
     //Setters
-   /* public void setIdAlumno(int idAlumno) {
-        this.idAlumno = idAlumno;
-    } */
-
-   /* public void setIdProfesor(int idProfesor) {
-        this.idProfesor = idProfesor;
-    } */
 
     public void setAsignatura(String asignatura) {
         this.asignatura = asignatura;
@@ -96,4 +78,10 @@ public class MatriculaEntity {
     public void setProfesor(ProfesoresEntity profesor) {
         this.profesor = profesor;
     }
+
+    public String toString(){
+        return getIdMatricula() + ": " +  getAsignatura() + ", " + getCurso();
+    }
 }
+
+
